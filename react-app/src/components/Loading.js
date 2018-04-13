@@ -1,6 +1,7 @@
 import React from 'react';
 
-const loadingMessages = ['Are we there yet?',
+const loadingMessages = [
+  'Are we there yet?',
   'Checking the gravitational constant in your locale...',
   'Don\'t worry - a few flights tried to escape, but we caught them.',
   'Our travel specialist are looking for your the best deal.',
@@ -20,7 +21,13 @@ const loadingMessages = ['Are we there yet?',
   'Everyone deserves some good vacations.',
   'Selecting a flight is a very special moment.',
   'Select the flight that suits your needs.',
-  'Have you ever been in Tijuana?'];
+  'Book the flight, maybe the love of your life is waiting you there',
+  'Just doooooo it, make your dreams come true',
+  'Go travel around the world, around the world, around the world',
+  'You know you deserve it...',
+  'Just do it cause you want it, not because you saw it',
+  'Have you ever been in Tijuana?'
+];
 
 class LoadingScreen extends React.Component {
   constructor() {
@@ -89,7 +96,7 @@ class LoadingScreen extends React.Component {
             <i className='icon-airplane' />
           </div>
           <div className='ipl-loading'>
-            <h3>{ message }</h3>
+            <h3>{message}</h3>
           </div>
         </div>
       </div>
