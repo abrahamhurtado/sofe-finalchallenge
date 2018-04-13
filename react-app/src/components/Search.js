@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Farefinder from './Farefinder';
-import heroImage from '../assets/paris-hero.jpg';
+import heroImage from '../assets/australia.jpg';
 
 const renderPromoCopy = () => (
   <div className='search-copy col-sm-7 col-md-7 text-white'>
@@ -13,7 +13,10 @@ const renderPromoCopy = () => (
 );
 
 const Search = () => (
-  <div className='search-hero' style={{ background: `url(${heroImage}) no-repeat 50% 100% / cover` }}>
+  <div
+    className='search-hero'
+    style={{ background: `url(${heroImage}) no-repeat 50% 100% / cover` }}
+  >
     <div className='search-overlay' />
     <div className='search-cover'>
       <div className='search-container'>
@@ -21,7 +24,7 @@ const Search = () => (
           <div className='col-sm-5 col-md-5'>
             <Farefinder />
           </div>
-          { renderPromoCopy() }
+          {renderPromoCopy()}
         </div>
       </div>
     </div>
