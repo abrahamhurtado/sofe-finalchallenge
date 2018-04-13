@@ -7,10 +7,10 @@ import Search from './components/Search';
 import Results from './components/Results';
 import Loading from './components/Loading';
 
-
 const renderRoutes = () => (
   <div>
-    <Route path='/search' component={Search} />
+    <Route exact path='/' component={Search} />
+    <Route exact path='/search' component={Search} />
     <Route path='/results' component={Results} />
   </div>
 );
@@ -26,10 +26,11 @@ class App extends React.Component {
     return (
       <Router history={history}>
         <div>
-          { this.renderLoadingScreen() }
-          { renderRoutes() }
+          {this.renderLoadingScreen()}
+          {renderRoutes()}
         </div>
-      </Router>);
+      </Router>
+    );
   }
 
   renderLoadingScreen() {
@@ -39,7 +40,7 @@ class App extends React.Component {
       return null;
     }
 
-    return (<Loading />);
+    return <Loading />;
   }
 }
 
