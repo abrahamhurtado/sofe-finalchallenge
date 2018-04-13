@@ -87,7 +87,6 @@ def format_flight_params
     end
   end
   flight_params[:cabin] = parse_cabin_type(params['cabin'])
-  flight_params[:departingAirportCodes] = ['LAX']
   flight_params
 end
 
