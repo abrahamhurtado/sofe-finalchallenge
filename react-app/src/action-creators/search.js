@@ -1,5 +1,14 @@
-import { push } from 'react-router-redux';
-import { fetchAirtportByName, fetchFlightInventory } from './../api/search';
+import {
+  push
+} from 'react-router-redux';
+import {
+  fetchAirtportByName,
+  fetchFlightInventory
+} from './../api/search';
+import {
+  convertSearchParams,
+  addSerializedQueryParams
+} from '../api/httpUtils';
 
 export function setAirports(airports) {
   return {
@@ -32,9 +41,9 @@ export function setFlightResults(flightResults) {
 export function fetchAirportList(airport) {
   return dispatch =>
     fetchAirtportByName(airport)
-      .then(data => {
-        dispatch(setAirports(data));
-      });
+    .then(data => {
+      dispatch(setAirports(data));
+    });
 }
 
 export function fetchFlightResults(searchParams) {
@@ -44,9 +53,10 @@ export function fetchFlightResults(searchParams) {
     fetchFlightInventory(searchParams)
       .then(data => {
         dispatch(setFlightResults(data));
-        dispatch(push('/results'));
+        dispatch(push(`/results?${addSerializedQueryParams(convertSearchParams(searchParams))}`));
         dispatch(setIsFetchingResults(false));
-      }).catch(() => {
+      })
+      .catch(() => {
         dispatch(setIsFetchingResults(false));
       });
   };

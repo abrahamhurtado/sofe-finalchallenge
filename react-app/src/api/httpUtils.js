@@ -26,6 +26,21 @@ export function addSerializedQueryParams(params = {}) {
   return serializeQueryParams(params);
 }
 
+export function convertSearchParams(params) {
+  return {
+    passenger: `children:${params.children},infants:0,infantsOnSeat:0,adults:${params.adults}`,
+    departingAirportCodes: params.from.iata,
+    arrivalAirportCodes: params.to.iata,
+    departingDates: params.departureDate,
+    returnDates: params.returnDate,
+    returnTimes: '00:00:00',
+    departingTimes: '00:00:00',
+    type: 'roundTrip',
+    limit: 100,
+    gds: 'sabre'
+  };
+}
+
 export function serializeQueryParams(params) {
   let str = '';
   for (const key in params) {
